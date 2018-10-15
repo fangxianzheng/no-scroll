@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+  <style>
+    .win-wrap{
+      position: fixed;
+      top: 0; right: 0; bottom: 0; left: 0;
+      background-color: rgba(0,0,0,0.6);
+    }
+    #win{
+      width: 80%;
+      height: 200px;
+      margin: auto;
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+      background-color: #fff;
+      overflow: auto;
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="win-wrap">
+    <ul class="win" id="win"></ul>
+  </div>
+
+  <script>
+
+    let parent = ''
+    for(let i = 0; i < 1000; i++) {
+      parent += `<li>第${i}行</li>`
+    }
+    let ul = document.createElement('ul')
+    ul.id = 'list'
+    ul.innerHTML = parent
+    document.body.appendChild(ul)
+
+    let children = ''
+    for(let j = 0; j < 50; j++) {
+      children += `<li>内部${j}行</li>`
+    }
+    document.querySelector('#win').innerHTML = children
+
+  </script>
+
+  <script src="no-scroll.js"></script>
+</body>
+</html>
